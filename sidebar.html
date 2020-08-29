@@ -171,7 +171,7 @@
 
     function calcByType(widgets) {
         //return countBy(widgets, (a) => a.type)
-        return countBy(widgets, (a) => a.id.style.backgroundColor)
+        return countBy(widgets, (a) => a.text)
     }
 
     function countBy(list, keyGetter) {
