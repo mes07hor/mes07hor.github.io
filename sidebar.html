@@ -171,7 +171,6 @@
 
     function calcByType(widgets) {
         return countBy(widgets, (a) => a.type)
-        console.log(a.type)
         //return countBy(widgets, (a) => a.style.backgroundColor)
     }
 
@@ -181,6 +180,7 @@
              const key = keyGetter(item)
              const count = map.get(key)
              map.set(key, !count ? 1 : count + 1)
+             console.log(key)
         });
         return new Map([...map.entries()].sort((a,b) => b[1] - a[1]))
     }
