@@ -171,7 +171,7 @@
 
     function calcByType(widgets) {
         //return countBy(widgets, (a) => a.type)
-        return countBy(widgets, (a) => a.modifiedBy)
+        return countBy(widgets, (a) => a.createdAt)
     }
 
     function countBy(list, keyGetter) {
