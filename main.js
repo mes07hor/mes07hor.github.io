@@ -50,8 +50,8 @@ miro.onReady(() => {
           }
           console.log("test")
           const currentUser = await miro.currentUser.getId()
-          if (currentUser =="3074457348809638138") {
-
+          //if (currentUser =="3074457348809638138") {
+          if(true){
               var check = function(){
                   miro.board.widgets.get({ type: 'sticker' }).then(irregularChecker)
               }
@@ -63,7 +63,7 @@ miro.onReady(() => {
                   svgIcon: icon24,
                   onClick: () => {
                       miro.board.ui.openLeftSidebar('sidebar.html')
-                      window.open('sidebar.html');
+                      
                   }
               }
                            
