@@ -3,12 +3,72 @@ miro.onReady(() => {
 
   miro.initialize({
     extensionPoints: {
-      bottomBar: {
-        title: 'widget counter',
-        svgIcon: icon24,
-        onClick: () => {
-          miro.board.ui.openLeftSidebar('sidebar.html')
-        }
+      bottomBar: async() => {
+          
+          function irregularChecker(widgets) {  
+              const statByType = calcByType(widgets)
+              const size = statByType.size
+              var values = statByType.values()
+              var keys = statByType.keys()
+              const valuelist = []
+              const keylist = []
+              var i = 0
+              var k = 0
+              for (var value of values) {
+                  valuelist[i] = value
+                  i++
+              }
+              for (var key of keys) {
+                  keylist[k] = key
+                  k++
+              }
+              if (valuelist[size - 2] - valuelist[size - 1] > 3) {
+                  miro.showNotification(keylist[size - 1] + " guy")
+              } else {
+
+              }
+
+          }
+          console.log("test0")
+          function calcByType(widgets) {
+              return widgetcounter(widgets, (a) => a.style.stickerBackgroundColor)
+          }
+
+          function widgetcounter(list, keygetter) {
+              const map = new Map()
+              list.forEach((item) => {
+                  const key = keygetter(item)
+                  //convert rgb value to name of colors
+                  var name = ntc.name(key)
+
+                  const color = name[1]
+
+                  const count = map.get(color)
+                  map.set(color, !count ? 1 : count + 1)
+              });
+              return new Map([...map.entries()].sort((a, b) => b[1] - a[1]))
+          }
+          console.log("test")
+          const currentUser = await miro.currentUser.getId()
+          if (currentUser =="3074457348809638138") {
+
+              var check = function(){
+                  miro.board.widgets.get({ type: 'sticker' }).then(irregularChecker)
+              }
+              console.log("test2")
+              setInterval(check, 10000) 
+
+              return {
+                  title: 'widget counter',
+                  svgIcon: icon24,
+                  onClick: () => {
+                      miro.board.ui.openLeftSidebar('sidebar.html')
+                      window.open('sidebar.html');
+                  }
+              }
+                           
+          }
+
       },
     }
   })

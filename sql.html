@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Miro Widget Counter</title>
+    <script src="https://miro.com/app/static/sdk.1.1.js"></script>
+    <link rel="stylesheet" href="base.css">
+
+   
+</head>
+<body>
+    <div class="sidebar__content">
+        <div id="stat-container" class="stat-list">
+            <div class="stat-list__header">Widget Counter</div>
+            <!-- <div class="stat-list__table">
+                <div class="stat-list__title">
+                    <span>by Type</span>
+                </div>
+                <div class="stat-list__empty">
+                    Looks like the selection is empty.
+                </div>
+                <div class="stat-list__item">
+                    <span class="stat-list__item-name">Sticker</span>
+                    <span class="stat-list__item-value">10</span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        console.log("test0")
+        loadDB()
+        function loadDB() {
+            console.log("test1");
+
+
+
+            var connection = new ActiveXObject("ADODB.Connection");
+            var connectionstring = "Data Source=192.168.0.25;Initial Catalog=Test;Persist Security Info=True;User ID=test;Password=test;Provider=SQLOLEDB";
+            connection.Open(connectionstring);
+            var rs = new ActiveXObject("ADODB.Recordset");
+            rs.Open("select * from timetest", connection);
+            rs.MoveFirst();
+            console.log("test2");
+            var span = document.createElement("span");
+            span.style.color = "Blue";
+            span.innerText = " ID " + " Name " + " Salary";
+            document.body.appendChild(span);
+            while (!rs.eof) {
+                var span = document.createElement("span");
+                span.style.color = "green";
+                span.innerText = "\n " + rs.fields(0);
+                document.body.appendChild(span);
+                rs.MoveNext();
+            }
+            rs.close();
+            connection.close();
+        }
+
+    </script>
+
+</body>
+</html>
+
