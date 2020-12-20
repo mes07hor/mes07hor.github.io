@@ -138,13 +138,16 @@
             miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
         })
         //miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
+        miro.addListener('SELECTION_UPDATED', (e) => {
+            showStatistics(e.data)
+        })
         miro.board.selection.get({ type: 'sticker' }).then(showStatistics)
 
     })
 
-    function showStatistics(widgets) {
+    function showStatistics(selection) {
         clear();
-        const statByType = calcByType(widgets)
+        const statByType = calcByType(selection)
         getContainer().appendChild(createStatTable(
             "by Type",
             "Looks like the selection is empty.",
