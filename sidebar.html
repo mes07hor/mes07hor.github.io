@@ -137,7 +137,8 @@
             //showStatistics(e.data)
             miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
         })
-        miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
+        //miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
+        miro.board.selection.get({ type: 'sticker' }).then(showStatistics)
 
     })
 
