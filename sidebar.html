@@ -139,7 +139,8 @@
         })
         //miro.board.widgets.get({type: 'sticker' }).then(showStatistics)
         miro.addListener('SELECTION_UPDATED', (e) => {
-            showStatistics(e.data)
+            showStatistics(e.data),
+            console.log("test")
         })
         miro.board.selection.get({ type: 'sticker' }).then(showStatistics)
 
