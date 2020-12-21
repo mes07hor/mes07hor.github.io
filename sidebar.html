@@ -195,12 +195,12 @@
         return statView
     }
 
-    function calcByType(widgets) {
+    function calcByType(selection) {
         //console.log("testlog", widgets[0].style.stickerBackgroundColor);
         //var key = Object.keys(widgets);
         //console.log(key);
         //return countBy(widgets, (a) => a.type)
-        return countBy(widgets, (a) => a.style.stickerBackgroundColor)
+        return countBy(selection, (a) => a.style.stickerBackgroundColor)
 
     }
 
