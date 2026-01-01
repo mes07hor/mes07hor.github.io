@@ -47,7 +47,7 @@ contactForm.addEventListener('submit', function (e) {
     const message = formData.get('message');
 
     // Create mailto link
-    const mailtoLink = `mailto:hello@enigmasoftware.uk?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const mailtoLink = `mailto:contact@enigmasoftware.uk?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
     window.location.href = mailtoLink;
 
