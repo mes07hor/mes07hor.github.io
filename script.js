@@ -27,7 +27,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -38,25 +38,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission handling
 const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function(e) {
+contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const formData = new FormData(contactForm);
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
-    
+
     // Create mailto link
-    const mailtoLink = `mailto:hello@enigmasoftware.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    
+    const mailtoLink = `mailto:hello@enigmasoftware.uk?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+
     window.location.href = mailtoLink;
-    
+
     // Show success message
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
     btn.innerHTML = 'Message Sent! ✓';
     btn.style.background = '#10b981';
-    
+
     setTimeout(() => {
         btn.innerHTML = originalText;
         btn.style.background = '';
@@ -96,7 +96,7 @@ document.querySelectorAll('.service-card').forEach((card, index) => {
 window.addEventListener('mousemove', (e) => {
     const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
     const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
-    
+
     document.querySelectorAll('.gradient-orb').forEach((orb, index) => {
         const speed = (index + 1) * 0.5;
         orb.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
